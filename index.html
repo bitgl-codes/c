@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>C++ Programs</title>
+<meta charset="UTF-8">
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #000000;
+}
+h1 {
+    text-align: center;
+    color: #ffffff;
+    background-color: #000000;
+    padding: 20px;
+    border-radius: 10px;
+}
+h2 {
+    background-color: #0ba00b;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+}
+div.section {
+    background: #000000;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgb(255, 255, 255);
+}
+pre {
+    background-color: #000000;
+    padding: 10px;
+    border-radius: 5px;
+    overflow-x: auto;
+    color:#ffffff;
+}
+code {
+    font-family: Consolas, monospace;
+}
+</style>
+</head>
+<body>
+
+<h1>+2 C++ Programs</h1>
+
+<div class="section">
+<h2>1. Roots of quadratic equation</h2>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;cmath&gt;
+using namespace std;
+int main () {
+    double a, b, c;
+    double root1 ,root2 , realPart , imgPart;
+    cout &lt;&lt;"Enter the coefficients of the quadratic equation (a, b, c):";
+    cin &gt;&gt; a &gt;&gt; b &gt;&gt; c;
+    double disc = b * b - 4 * a * c;
+    if(disc &gt; 0) {
+        root1 = (-b + sqrt(disc)) / (2 * a);
+        root2 = (-b - sqrt(disc)) / (2 * a);
+        cout &lt;&lt; "Real and Imaginary roots\n";
+        cout &lt;&lt; "Root 1: " &lt;&lt; root1 &lt;&lt;"\n";
+        cout &lt;&lt; "Root 2: " &lt;&lt; root2 &lt;&lt;"\n";
+    } else if (disc == 0) {
+        root1 = -b / (2 * a);
+        cout &lt;&lt; "Two Roots are equal.\n";
+        cout &lt;&lt; "Root: " &lt;&lt; root1;
+    } else {
+        realPart = -b / (2 * a);
+        imgPart = sqrt(-disc) / (2 * a);
+        cout &lt;&lt;"Complex Roots \n";
+        cout &lt;&lt; "Root 1: "&lt;&lt; realPart &lt;&lt; " + " &lt;&lt; imgPart &lt;&lt; " i\n";
+        cout &lt;&lt; "Root 2: "&lt;&lt; realPart &lt;&lt; " - " &lt;&lt; imgPart &lt;&lt; " i\n";
+    }
+    return 0;
+}</code></pre>
+</div>
+
+<div class="section">
+<h2>2. Display word corresponding to a digit</h2>
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+int main (){
+    int num;
+    cout &lt;&lt;"Input the digit to display in words:";
+    cin &gt;&gt;num;
+    switch(num) {
+        case 0: cout &lt;&lt;"Zero"; break;
+        case 1: cout &lt;&lt;"One"; break;
+        case 2: cout &lt;&lt;"Two"; break;
+        case 3: cout &lt;&lt;"Three"; break;
+        case 4: cout &lt;&lt;"Four"; break;
+        case 5: cout &lt;&lt;"Five"; break;
+        case 6: cout &lt;&lt;"Six"; break;
+        case 7: cout &lt;&lt;"Seven"; break;
+        case 8: cout &lt;&lt;"Eight"; break;
+        case 9: cout &lt;&lt;"Nine"; break;
+        default: cout &lt;&lt;"Invalid input";
+    }
+    return 0;
+}</code></pre>
+</div>
+
+<div class="section">
+<h2>3. Sum of n natural numbers</h2>
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+int main () {
+    int n;
+    cout &lt;&lt; "Enter a positive integer (n): ";
+    cin &gt;&gt; n;
+    int sum = 0;
+    for (int i = 1; i &lt;= n; i++) {
+        sum += i;
+    }
+    cout &lt;&lt;"The sum of the first " &lt;&lt; n &lt;&lt; " natural numbers is : " &lt;&lt; sum;
+    return 0;
+}</code></pre>
+</div>
+
+<div class="section">
+<h2>4. Check integer for palindrome</h2>
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+int main () {
+    int n, num , digit , rev = 0;
+    cout &lt;&lt; "Enter a positive number: ";
+    cin &gt;&gt; num;
+    n = num;
+    while (num &gt; 0) {
+        digit = num % 10;
+        rev = (rev * 10) + digit;
+        num = num / 10;
+    }
+    cout &lt;&lt; "The reverse of the number is: " &lt;&lt; rev;
+    if (n == rev)
+        cout &lt;&lt; " \n The number is a palindrome.";
+    else
+        cout &lt;&lt; " \n The number is not a palindrome.";
+    return 0;
+}</code></pre>
+</div>
+
+<div class="section">
+<h2>5. Check integer for prime</h2>
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+int main (){
+    int num;
+    bool isPrime = true;
+    cout &lt;&lt;"Provide a positive number: ";
+    cin &gt;&gt; num;
+    if(num &lt;= 1)
+        isPrime = false;
+    else {
+        for(int i = 2; i &lt;= num / 2; i++) {
+            if (num % i == 0) {
+                isPrime = false;
+            }
+        }
+    }
+    if(isPrime)
+        cout &lt;&lt;"Number is prime";
+    else
+        cout &lt;&lt;"Number is not prime";
+    return 0;
+}</code></pre>
+</div>
+
+<div class="section">
+<h2>6. Sorting of array</h2>
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+int main () {
+    int heights[20], i, j, n, temp;
+    cout &lt;&lt; "Enter the number of students :\n";
+    cin &gt;&gt; n;
+    cout &lt;&lt; "Enter the heights of students :\n";
+    for (i = 0; i &lt; n; i++) {
+        cout &lt;&lt; "Student " &lt;&lt; (i + 1) &lt;&lt; ": ";
+        cin &gt;&gt; heights[i];
+    }
+    for(i = 0; i &lt; n; i++) {
+        for(j = i + 1; j &lt; n; j++) {
+            if(heights[i] &gt; heights[j]) {
+                temp = heights[i];
+                heights[i] = heights[j];
+                heights[j] = temp;
+            }
+        }
+    }
+    cout &lt;&lt; "The Sorted Heights \n";
+    for (i = 0; i &lt; n; i++) {
+        cout &lt;&lt; heights[i] &lt;&lt; "\n";
+    }
+    return 0;
+}</code></pre>
+</div>
+
+<div class="section">
+<h2>7. Compute length of a string</h2>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;cstdio&gt;
+using namespace std;
+int main () {
+    char str[50];
+    int i, length = 0;
+    cout &lt;&lt;"Enter the string:";
+    gets(str);
+    for(i = 0; str[i] != '\0'; ++i)
+        length++;
+    cout &lt;&lt;"Length of the string is:" &lt;&lt; length;
+    return 0;
+}</code></pre>
+</div>
+
+<div class="section">
+<h2>8. Compute nCr using a user-defined function</h2>
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+long fact(int n) {
+    long result = 1;
+    for (int i = 1; i &lt;= n; ++i) {
+        result = result * i;
+    }
+    return result;
+}
+int main () {
+    int n, r, ncr;
+    cout &lt;&lt;"Enter the value of n and r (positive integer)";
+    cin &gt;&gt; n &gt;&gt; r;
+    if((n &gt;= r) &amp;&amp; (r &gt;= 0)) {
+        ncr = fact(n) / (fact(r) * fact(n - r));
+        cout &lt;&lt; "nCr is: " &lt;&lt; ncr;
+    } else
+        cout &lt;&lt;"n and r must be non-negative integers and n &gt;= r.";
+    return 0;
+}</code></pre>
+</div>
+
+<div class="section">
+<h2>9. Student record management using structure</h2>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;cstdio&gt;
+using namespace std;
+struct student {
+    int admNo;
+    char name[25];
+    int ceMark;
+    int peMark;
+    int totalMark;
+};
+int main () {
+    student s;
+    cout &lt;&lt;"Enter the student details :\n";
+    cout &lt;&lt;"\n Admission Number: ";
+    cin &gt;&gt; s.admNo;
+    cout &lt;&lt;"\n Name : ";
+    cin &gt;&gt; ws;
+    gets(s.name);
+    cout &lt;&lt;"\n CE Mark : ";
+    cin &gt;&gt; s.ceMark;
+    cout &lt;&lt;"\n PE Mark : ";
+    cin &gt;&gt; s.peMark;
+    s.totalMark = s.peMark + s.ceMark;
+    cout &lt;&lt;"\n The Student Details \n";
+    cout &lt;&lt;"\nName : " &lt;&lt; s.name;
+    cout &lt;&lt;"\nAdmission No. : " &lt;&lt; s.admNo;
+    cout &lt;&lt;"\nCE Mark : " &lt;&lt; s.ceMark;
+    cout &lt;&lt;"\nPE Mark : " &lt;&lt; s.peMark;
+    cout &lt;&lt;"\nTotal Mark : " &lt;&lt; s.totalMark;
+    return 0;
+}</code></pre>
+</div>
+
+<div class="section">
+<h2>10. Integer swap operation using pointer arguments</h2>
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+void swap(int *x,int *y) {
+    int t;
+    t = *x;
+    *x = *y;
+    *y = t;
+}
+int main() {
+    int a,b;
+    cout &lt;&lt;"Enter the values of a and b";
+    cin &gt;&gt; a &gt;&gt; b;
+    cout &lt;&lt;"\nBefore Swap \n";
+    cout &lt;&lt;"a=" &lt;&lt; a &lt;&lt; "\t b=" &lt;&lt; b;
+    swap(&amp;a, &amp;b);
+    cout &lt;&lt;"\nAfter Swap \n";
+    cout &lt;&lt;"a=" &lt;&lt; a &lt;&lt; "\t b=" &lt;&lt; b;
+}</code></pre>
+</div>
+
+<div class="section">
+<h2>11. Check if number is positive, negative, or zero</h2>
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+int main (){
+    int num;
+    cout &lt;&lt;"Enter the integer to check :";
+    cin &gt;&gt; num;
+    if(num &gt; 0)
+        cout &lt;&lt;"\n The given number is Positive";
+    else if(num &lt; 0)
+        cout &lt;&lt;"\n The given number is Negative";
+    else
+        cout &lt;&lt;"\n The given number is Zero";
+    return 0;
+}</code></pre>
+</div>
+
+<div class="section">
+<h2>12. Check whether the given number is odd or even</h2>
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+int main () {
+    int num;
+    cout &lt;&lt;"Enter a number to check - odd or even :";
+    cin &gt;&gt; num;
+    if(num % 2 == 0)
+        cout &lt;&lt;"The given number is even";
+    else
+        cout &lt;&lt;"The Given number is odd";
+    return 0;
+}</code></pre>
+</div>
+
+<div class="section">
+<h2>13. Sum of the squares of the first N natural numbers</h2>
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+int main () {
+    int num , sum = 0, i;
+    cout &lt;&lt;"Enter the limit :";
+    cin &gt;&gt; num;
+    for(i = 1; i &lt;= num; i++)
+        sum = sum + i * i;
+    cout &lt;&lt;"Sum of square:" &lt;&lt; sum;
+    return 0;
+}</code></pre>
+</div>
+
+</body>
+</html>
