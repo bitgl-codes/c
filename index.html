@@ -48,46 +48,57 @@ code {
 <div class="section">
 <h2>1. Write a C++ program to display the first N terms of the Fibonacci series.</h2>
 <pre><code>#include &lt;iostream&gt;
-using namespace std; 
-    int main() 
-    {      
-    int n, a = 0, b = 1, c;  
-    cout << "Enter the number of terms: ";    
-        cin >> n;    
-        cout << "Fibonacci series: "; Output ======== Enter a positive number: 121 The reverse of the number is: 121 The number is a palindrome. Enter a positive number: 123 The reverse of the number is: 321 The number is not a palindrome.   
-            if(n >= 1)  
-            cout << a << " ";  
-                if(n >= 2)       
-                cout << b << " ";    
-                    for(int i = 3; i <= n; i++)  
-                        {      
-                        c = a + b;   
-                        cout << c << " ";     
-                            a = b;     
-                            b = c;  
-                            }     
-                            return 0;
-                        }</code></pre>
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Enter how many terms: ";
+    cin >> n;
+
+    int a = 0, b = 1, c;
+
+    cout << "Fibonacci Series: ";
+
+    if (n >= 1)
+        cout << a << " ";
+    if (n >= 2)
+        cout << b << " ";
+
+    for (int i = 3; i <= n; i++) {
+        c = a + b;
+        cout << c << " ";
+        a = b;
+        b = c;
+    }
+
+    cout << endl;
+    return 0;
+}
+</code></pre>
 </div>
 
 <div class="section">
 <h2>2. Write a C++ program to find the sum of the digits of a number. </h2>
 <pre><code>#include &lt;iostream&gt;
-using namespace std; 
-    int main()  
-    {  
-    int num, digit, sum = 0;     
-    cout << "Enter a number: ";    
-        cin >> num;     
-        while(num > 0)   
-        {        
-        digit = num % 10;     // get last digit    
-        sum = sum + digit;    // add digit to sum       
-        num = num / 10;       // remove last digit    
-        }    
-        cout << "Sum of digits = " << sum;   
-                                        return 0; 
-                                        } 
+using namespace std;
+
+int main() {
+    int num, digit, sum = 0;
+
+    cout << "Enter a number: ";
+    cin >> num;
+
+    while (num > 0) {
+        digit = num % 10;   // get last digit
+        sum = sum + digit;  // add it to sum
+        num = num / 10;     // remove last digit
+    }
+
+    cout << "Sum of digits = " << sum << endl;
+
+    return 0;
+}
+
 </code></pre>
 </div>
 
@@ -112,23 +123,31 @@ int main () {
 <h2>4. Check integer for palindrome</h2>
 <pre><code>#include &lt;iostream&gt;
 using namespace std;
-int main () {
-    int n, num , digit , rev = 0;
-    cout &lt;&lt; "Enter a positive number: ";
-    cin &gt;&gt; num;
-    n = num;
-    while (num &gt; 0) {
-        digit = num % 10;
-        rev = (rev * 10) + digit;
-        num = num / 10;
+
+int main() {
+    int num, original, digit, rev = 0;
+
+    cout << "Enter a positive number: ";
+    cin >> num;
+
+    original = num;
+
+    while (num > 0) {
+        digit = num % 10;          // get last digit
+        rev = (rev * 10) + digit;  // build reverse
+        num = num / 10;            // remove last digit
     }
-    cout &lt;&lt; "The reverse of the number is: " &lt;&lt; rev;
-    if (n == rev)
-        cout &lt;&lt; " \n The number is a palindrome.";
+
+    cout << "The reverse of the number is: " << rev << endl;
+
+    if (original == rev)
+        cout << "The number is a palindrome." << endl;
     else
-        cout &lt;&lt; " \n The number is not a palindrome.";
+        cout << "The number is not a palindrome." << endl;
+
     return 0;
-}</code></pre>
+}
+</code></pre>
 </div>
 
 <div class="section">
@@ -336,4 +355,5 @@ int main () {
 
 </body>
 </html>
+
 
