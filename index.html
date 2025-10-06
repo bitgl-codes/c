@@ -46,60 +46,49 @@ code {
 <h1>+2 C++ Programs</h1>
 
 <div class="section">
-<h2>1. Roots of quadratic equation</h2>
+<h2>1. Write a C++ program to display the first N terms of the Fibonacci series.</h2>
 <pre><code>#include &lt;iostream&gt;
-#include &lt;cmath&gt;
-using namespace std;
-int main () {
-    double a, b, c;
-    double root1 ,root2 , realPart , imgPart;
-    cout &lt;&lt;"Enter the coefficients of the quadratic equation (a, b, c):";
-    cin &gt;&gt; a &gt;&gt; b &gt;&gt; c;
-    double disc = b * b - 4 * a * c;
-    if(disc &gt; 0) {
-        root1 = (-b + sqrt(disc)) / (2 * a);
-        root2 = (-b - sqrt(disc)) / (2 * a);
-        cout &lt;&lt; "Real and Imaginary roots\n";
-        cout &lt;&lt; "Root 1: " &lt;&lt; root1 &lt;&lt;"\n";
-        cout &lt;&lt; "Root 2: " &lt;&lt; root2 &lt;&lt;"\n";
-    } else if (disc == 0) {
-        root1 = -b / (2 * a);
-        cout &lt;&lt; "Two Roots are equal.\n";
-        cout &lt;&lt; "Root: " &lt;&lt; root1;
-    } else {
-        realPart = -b / (2 * a);
-        imgPart = sqrt(-disc) / (2 * a);
-        cout &lt;&lt;"Complex Roots \n";
-        cout &lt;&lt; "Root 1: "&lt;&lt; realPart &lt;&lt; " + " &lt;&lt; imgPart &lt;&lt; " i\n";
-        cout &lt;&lt; "Root 2: "&lt;&lt; realPart &lt;&lt; " - " &lt;&lt; imgPart &lt;&lt; " i\n";
-    }
-    return 0;
-}</code></pre>
+using namespace std; 
+    int main() 
+    {      
+    int n, a = 0, b = 1, c;  
+    cout << "Enter the number of terms: ";    
+        cin >> n;    
+        cout << "Fibonacci series: "; Output ======== Enter a positive number: 121 The reverse of the number is: 121 The number is a palindrome. Enter a positive number: 123 The reverse of the number is: 321 The number is not a palindrome.   
+            if(n >= 1)  
+            cout << a << " ";  
+                if(n >= 2)       
+                cout << b << " ";    
+                    for(int i = 3; i <= n; i++)  
+                        {      
+                        c = a + b;   
+                        cout << c << " ";     
+                            a = b;     
+                            b = c;  
+                            }     
+                            return 0;
+                        }</code></pre>
 </div>
 
 <div class="section">
-<h2>2. Display word corresponding to a digit</h2>
+<h2>2. Write a C++ program to find the sum of the digits of a number. </h2>
 <pre><code>#include &lt;iostream&gt;
-using namespace std;
-int main (){
-    int num;
-    cout &lt;&lt;"Input the digit to display in words:";
-    cin &gt;&gt;num;
-    switch(num) {
-        case 0: cout &lt;&lt;"Zero"; break;
-        case 1: cout &lt;&lt;"One"; break;
-        case 2: cout &lt;&lt;"Two"; break;
-        case 3: cout &lt;&lt;"Three"; break;
-        case 4: cout &lt;&lt;"Four"; break;
-        case 5: cout &lt;&lt;"Five"; break;
-        case 6: cout &lt;&lt;"Six"; break;
-        case 7: cout &lt;&lt;"Seven"; break;
-        case 8: cout &lt;&lt;"Eight"; break;
-        case 9: cout &lt;&lt;"Nine"; break;
-        default: cout &lt;&lt;"Invalid input";
-    }
-    return 0;
-}</code></pre>
+using namespace std; 
+    int main()  
+    {  
+    int num, digit, sum = 0;     
+    cout << "Enter a number: ";    
+        cin >> num;     
+        while(num > 0)   
+        {        
+        digit = num % 10;     // get last digit    
+        sum = sum + digit;    // add digit to sum       
+        num = num / 10;       // remove last digit    
+        }    
+        cout << "Sum of digits = " << sum;   
+                                        return 0; 
+                                        } 
+</code></pre>
 </div>
 
 <div class="section">
@@ -347,3 +336,4 @@ int main () {
 
 </body>
 </html>
+
